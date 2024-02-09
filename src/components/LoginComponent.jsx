@@ -3,7 +3,7 @@ import { LoginAPI } from "../api/AuthApi";
 import LinkedinLogo from "../assets/linkedinLogo.png";
 import { useNavigate } from "react-router-dom";
 import "../Sass/LoginComponent.scss";
-// import { toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 export default function LoginComponent() {
   let navigate = useNavigate();
@@ -12,8 +12,8 @@ export default function LoginComponent() {
     try {
       let res = await LoginAPI(credentails.email, credentails.password);
       toast.success("Signed In to Linkedin!");
-      localStorage.setItem("userEmail", res.user.email);
-      navigate("/home");
+      // localStorage.setItem("userEmail", res.user.email);
+      // navigate("/home");
     } catch (err) {
       console.log(err);
       toast.error("Please Check your Credentials");
